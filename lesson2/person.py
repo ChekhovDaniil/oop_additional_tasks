@@ -11,10 +11,37 @@
 
 
 class Person:
-    pass
+
+    def __init__(self, name: str, age: int) -> None:
+        self.name = name
+        self.age = age
+
+    def display(self) -> None:
+        """Выводит на экран имя и возраст человека."""
+        print(f'{self.name} is {self.age} years old.')
+
+    @classmethod
+    def from_birth_year(cls, name, birth_year):
+        """
+        :param name: Имя человека
+        :param birth_year: Возраст человека
+        :return: Объект класса Person
+        """
+        return cls(name, 2024 - birth_year)
+
+    @staticmethod
+    def is_adult(age) -> bool:
+        """
+        Возвращает True если возраст человека больше 18 и False в противном случае.
+        :param age: Возраст человека
+        :return: bool
+        """
+        if age >= 18:
+            return True
+        return False
 
 
-# код для проверки 
+# код для проверки
 person1 = Person("John", 28)
 person1.display()  # John is 28 years old
 

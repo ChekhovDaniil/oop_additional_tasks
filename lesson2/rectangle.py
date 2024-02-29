@@ -11,10 +11,38 @@
 
 
 class Rectangle:
-    pass
+    def __init__(self, width, height) -> None:
+        self.width = width
+        self.height = height
+
+    def area(self) -> (int, float):
+        """Возвращает площадь прямоугольника."""
+        return self.height * self.width
+
+    def perimeter(self) -> (int, float):
+        """Возвращает периметр прямоугольника."""
+        return 2 * (self.width + self.height)
+
+    @classmethod
+    def from_diagonal(cls, diagonal, aspect_ratio):
+        """Принимает диагональ прямоугольника и соотношение сторон и возвращающий объект класса Rectangle."""
+        a = diagonal
+        return cls()
+
+    @staticmethod
+    def is_square(width, height) -> bool:
+        """
+        Возвращает True, если это квадрат, и False в противном случае
+        :param width: ширина прямоугольника
+        :param height: высота прямоугольника
+        :return: bool
+        """
+        if width == height:
+            return True
+        return False
 
 
-# код для проверки 
+# код для проверки
 rectangle = Rectangle(4, 5)
 print(rectangle.area())  # 20
 print(rectangle.perimeter())  # 18

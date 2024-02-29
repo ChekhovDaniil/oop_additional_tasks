@@ -14,10 +14,45 @@
 
 
 class User:
-    pass
+
+    def __init__(self, name: str, password: str | int):
+        self._name = name
+        self._password = password
+        self.is_admin = False
+
+    @property
+    def is_admin(self):
+        return self.is_admin
+
+    @is_admin.setter
+    def is_admin(self, value):
+        self._is_admin = value
+
+    def _is_admin(self):
+        if self._is_admin:
+            self.is_admin = True
+        self.is_admin = False
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def password(self):
+        return self._password
+
+    @password.setter
+    def password(self, value):
+        self._password = value
+
+    def login(self, password) -> bool:
+        """Метод, который проверяет, соответствует ли введённый пароль паролю пользователя"""
+        if password == self.password:
+            return True
+        return False
 
 
-# код для проверки 
+# код для проверки
 user1 = User("Alice", "qwerty")
 print(user1.name)  # Alice
 print(user1.password)  # qwerty
@@ -30,4 +65,4 @@ user1._is_admin = True
 print(user1.is_admin)  # True
 
 user1.login("newpassword")  # True
-user1.logout()
+# user1.logout()

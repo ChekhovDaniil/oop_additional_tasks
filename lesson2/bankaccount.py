@@ -12,7 +12,21 @@
 
 
 class BankAccount:
-    pass
+    def __init__(self, balance) -> None:
+        self.balance = balance
+
+    def deposit(self, amount) -> None:
+        """Вносит деньги на счёт."""
+        self.balance += amount
+
+    def withdraw(self, amount) -> None:
+        """Снимает деньги со счёта."""
+        self.balance -= amount
+
+    def close(self) -> int:
+        """Закрывает счёт и возвращает оставшиеся на нём деньги."""
+        self.balance = 0
+        return self.balance
 
 
 # код для проверки 
